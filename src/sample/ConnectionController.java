@@ -31,6 +31,15 @@ import java.util.logging.Logger;
 public class ConnectionController {
 
     @FXML
+    private Label error_nom;
+    @FXML
+    private Label error_prenom;
+    @FXML
+    private Label error_email;
+    @FXML
+    private Label error_mdp;
+
+    @FXML
     private Label error;
     @FXML
     private Button inscriptionButton;
