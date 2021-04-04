@@ -68,8 +68,6 @@ public class ConnectionController {
 
 
     public void ButtonConneteAction(ActionEvent event) {
-        System.out.println(nom.getText());
-        System.out.println(mdp.getText());
         ConnectionClass connectionClass = new ConnectionClass();
         Connection connection = connectionClass.getConnection();
         String sql2 = "select * from user";
@@ -78,8 +76,6 @@ public class ConnectionController {
             Statement statement = connection.createStatement();
             ResultSet queryOutput = statement.executeQuery(sql2);
             while (queryOutput.next()) {
-                System.out.println(queryOutput.getString("nom"));
-                System.out.println(queryOutput.getString("password"));
                 if(queryOutput.getString("nom").equals(nom.getText())&&queryOutput.getString("password").equals(mdp.getText())) {
                     i++;
                 }
