@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -22,17 +23,20 @@ import java.util.logging.Logger;
 public class ConnectionController {
 
     @FXML
+    private Label error;
+
+    @FXML
     private Button inscriptionButton;
     @FXML
     private Button connecter;
     @FXML
-    private TextField nom_utilisateur;
+    private TextField nom;
     @FXML
     private PasswordField mdp;
     @FXML
     private PasswordField mdp_inscription;
     @FXML
-    private TextField nom;
+    private TextField nom_utilisateur;
     @FXML
     private TextField prenom;
     @FXML
