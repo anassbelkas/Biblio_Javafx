@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="log" prefHeight="600.0" prefWidth="750.0" style="-fx-background-color: #303030;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ConnectionController">
+<AnchorPane fx:id="log" prefHeight="600.0" prefWidth="750.0" style="-fx-background-color: #303030;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ConnectionController">
    <children>
       <Pane prefHeight="600.0" prefWidth="400.0">
          <children>
@@ -19,7 +19,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <TextField fx:id="nom" layoutX="60.0" layoutY="76.0" prefHeight="26.0" prefWidth="173.0" promptText="Votre nom" style="-fx-background-color: gray; -fx-background-radius: 15px; -fx-cursor: #ff6347;" />
+            <TextField fx:id="nom_utilisateur" layoutX="60.0" layoutY="76.0" prefHeight="26.0" prefWidth="173.0" promptText="Votre nom" style="-fx-background-color: gray; -fx-background-radius: 15px; -fx-cursor: #ff6347;" />
             <TextField fx:id="prenom" layoutX="60.0" layoutY="177.0" prefHeight="26.0" prefWidth="173.0" promptText="Votre Prenom" style="-fx-background-color: gray; -fx-background-radius: 15px;" />
             <Label layoutX="69.0" layoutY="252.0" text="-Email*" textFill="TOMATO">
                <font>
@@ -38,7 +38,7 @@
                </font>
             </Label>
             <PasswordField fx:id="mdp_inscription" layoutX="60.0" layoutY="392.0" prefHeight="26.0" prefWidth="173.0" promptText="votre mot de passe" style="-fx-background-color: gray; -fx-background-radius: 15PX;" />
-            <Button fx:id="inscriptionConfirm" layoutX="79.0" layoutY="473.0" mnemonicParsing="false" onAction="#TranslateReverse" onKeyPressed="#TranslateReverse" prefHeight="27.0" prefWidth="219.0" style="-fx-background-color: #303030; -fx-border-color: #ff6347; -fx-border-radius: 15PX;" text="Inscription" textFill="WHITE">
+            <Button fx:id="inscriptionConfirm" layoutX="79.0" layoutY="473.0" mnemonicParsing="false" onAction="#inscrire" onKeyPressed="#inscrire" prefHeight="27.0" prefWidth="219.0" style="-fx-background-color: #303030; -fx-border-color: #ff6347; -fx-border-radius: 15PX;" text="Inscription" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -68,7 +68,7 @@
                   <Image url="@../img_jfx/avatar.png" />
                </image>
             </ImageView>
-            <TextField fx:id="nom_utilisateur" layoutX="113.0" layoutY="257.0" prefHeight="26.0" prefWidth="173.0" promptText="Nom d'utilisateur" style="-fx-background-color: GRAY; -fx-background-radius: 15PX;" />
+            <TextField fx:id="nom" layoutX="113.0" layoutY="257.0" prefHeight="26.0" prefWidth="173.0" promptText="Nom d'utilisateur" style="-fx-background-color: GRAY; -fx-background-radius: 15PX;" />
             <ImageView fitHeight="32.0" fitWidth="52.0" layoutX="70.0" layoutY="297.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../img_jfx/mot%20de%20passe.png" />
@@ -87,6 +87,7 @@
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Button>
+            <Label fx:id="error" layoutX="79.0" layoutY="431.0" prefHeight="32.0" prefWidth="226.0" textFill="RED" />
          </children>
       </Pane>
       <ImageView fx:id="img" fitHeight="600.0" fitWidth="400.0">
