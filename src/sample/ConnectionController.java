@@ -32,7 +32,6 @@ public class ConnectionController {
 
     @FXML
     private Label error;
-
     @FXML
     private Button inscriptionButton;
     @FXML
@@ -53,7 +52,6 @@ public class ConnectionController {
     private Button inscriptionConfirm;
     @FXML
     private Button annuler;
-
     @FXML
     private ImageView img;
     @FXML
@@ -95,15 +93,14 @@ public class ConnectionController {
     }
  public void inscrire() throws SQLException {
      User user1 = new User(nom_utilisateur.getText(),prenom.getText(),email.getText(), mdp_inscription.getText());
-
-         ConnectionClass connectionClass = new ConnectionClass() ;
+         ConnectionClass connectionClass = new ConnectionClass();
          Connection connection=connectionClass.getConnection();
          user1.function();
-         String sql=" INSERT INTO user  values ('"+User.getId()+"','"+user1.getNom()+"','"+user1.getPrenom()+"','"+user1.getEmail()+"','"+user1.getPassword()+"')";
-
+         String sql="INSERT INTO user values ('"+User.getId()+"','"+user1.getNom()+"','"+user1.getPrenom()+"','"+user1.getEmail()+"','"+user1.getPassword()+"')";
+     System.out.println(sql);
          Statement statement=connection.createStatement();
 
-         statement.executeUpdate(sql) ;
+         statement.executeUpdate(sql);
 
      TranslateTransition translateTransition = new TranslateTransition();
      translateTransition.setDuration(Duration.millis(1200));
