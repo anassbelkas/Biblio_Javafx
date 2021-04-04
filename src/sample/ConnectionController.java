@@ -59,20 +59,47 @@ public class ConnectionController {
 
 
     public void ButtonConneteAction(ActionEvent event) {
-        log.getScene().getWindow().hide();
-        Parent root = null;
+        System.out.println(nom.getText());
+        System.out.println(mdp.getText());
+        ConnectionClass connectionClass = new ConnectionClass();
+        Connection connection = connectionClass.getConnection();
+        String sql2 = "select * from user";
+        int i=0;
         try {
-            root = FXMLLoader.load(getClass().getResource("Doc.fxml"));
-        } catch (IOException ex) {
-            Logger.getLogger(ConnectionController.class.getName()).log(Level.SEVERE, null, ex);
+            Statement statement = connection.createStatement();
+            ResultSet queryOutput = statement.executeQuery(sql2);
+            while (queryOutput.next()) {
+                System.out.println(queryOutput.getString("nom"));
+                System.out.println(queryOutput.getString("password"));
+                if(queryOutput.getString("nom").equals(nom.getText())&&queryOutput.getString("password").equals(mdp.getText())) {
+                    i++;
+                }
+                System.out.println(i);
+            }
         }
-        Stage stage = new Stage();
-        Scene scene = new Scene(root) ;
-        stage.setScene(scene);
-        stage.show();
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        if(i!=0) {
+            error.setText("");
+            log.getScene().getWindow().hide();
+            Parent root = null;
+            try {
+                root = FXMLLoader.load(getClass().getResource("Doc.fxml"));
+            } catch (IOException ex) {
+                Logger.getLogger(ConnectionController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            Stage stage = new Stage();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
+        else{
+            error.setText("Invalid login ou mot de passe !");
+        }
     }
 
-    public void Translate(ActionEvent event){
+    public void Translate(ActionEvent event) {
             TranslateTransition translateTransition = new TranslateTransition();
             translateTransition.setDuration(Duration.millis(1200));
             translateTransition.setNode(img);
@@ -80,8 +107,7 @@ public class ConnectionController {
             translateTransition.setAutoReverse(false);
             translateTransition.play();
 
-    }
-
+        }
     public void TranslateReverse(ActionEvent event){
         TranslateTransition translateTransition = new TranslateTransition();
         translateTransition.setDuration(Duration.millis(1200));
