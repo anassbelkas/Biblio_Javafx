@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="hist" prefHeight="600.0" prefWidth="750.0" style="-fx-background-color: #303030;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.HistoriqueController">
+
+    <children>
+      <ImageView fitHeight="600.0" fitWidth="750.0" layoutY="1.0">
+         <image>
+            <Image url="@../img_jfx/88c4440c63d56aa8a3c89fef3e0eb671.jpg" />
+         </image>
+      </ImageView>
+        <Pane layoutX="150.0" layoutY="1.0" prefHeight="600.0" prefWidth="600.0" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="1.0">
+            <children>
+                <Pane layoutX="24.0" layoutY="83.0" prefHeight="110.0" prefWidth="551.0" style="-fx-background-color: #FAEBD7; -fx-background-radius: 15px;">
+                    <children>
+                        <Label layoutX="14.0" prefHeight="17.0" prefWidth="98.0" text="Statistiques :">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Label>
+                        <ImageView fitHeight="26.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true" />
+                  <Pane layoutX="21.0" layoutY="22.0" prefHeight="83.0" prefWidth="150.0" style="-fx-background-color: #29bb89;">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="17.0" prefWidth="150.0" style="-fx-background-color: black;" text="Livre emprunter" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="livre" alignment="CENTER" layoutX="34.0" layoutY="17.0" prefHeight="61.0" prefWidth="83.0" text="1">
+                           <font>
+                              <Font name="System Bold" size="47.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="201.0" layoutY="22.0" prefHeight="83.0" prefWidth="150.0" style="-fx-background-color: #289672;">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="17.0" prefWidth="150.0" style="-fx-background-color: black;" text="Magazine emprunter" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="magazine" alignment="CENTER" layoutX="34.0" layoutY="17.0" prefHeight="61.0" prefWidth="83.0" text="1">
+                           <font>
+                              <Font name="System Bold" size="47.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="376.0" layoutY="22.0" prefHeight="83.0" prefWidth="150.0" style="-fx-background-color: #1e6f5c;">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="17.0" prefWidth="150.0" style="-fx-background-color: black;" text="Dictionnaire emprunter" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="dictionnaire" alignment="CENTER" layoutX="33.0" layoutY="12.0" prefHeight="61.0" prefWidth="83.0" text="1">
+                           <font>
+                              <Font name="System Bold" size="47.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                    </children>
+                </Pane>
+                <Pane layoutX="24.0" layoutY="201.0" prefHeight="302.0" prefWidth="551.0" style="-fx-background-color: #FAEBD7; -fx-background-radius: 15px;">
+                    <children>
+                        <Label layoutX="22.0" layoutY="15.0" prefHeight="17.0" prefWidth="162.0" text="Historique des empruntes :">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Label>
+                        <ImageView fitHeight="26.0" fitWidth="29.0" layoutX="7.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../../Desktop/Screen%20Shot%202021-04-01%20at%205.07.17%20PM.png" />
+                            </image>
+                        </ImageView>
+                        <TextField fx:id="chercher" layoutX="201.0" layoutY="10.0" prefHeight="25.0" prefWidth="162.0" promptText="Recherche" style="-fx-background-color: white; -fx-background-radius: 15px; -fx-border-radius: 15px; -fx-border-color: #E96151;" />
+                        <TableView layoutY="57.0" prefHeight="243.0" prefWidth="551.0" style="-fx-background-color: #FAEBD7; -fx-background-radius: 15px;">
+                            <columns>
+                                <TableColumn prefWidth="96.66" text="ISBN" />
+                                <TableColumn prefWidth="96.66" text="Titre" />
+                                <TableColumn prefWidth="96.66" text="RefBiblio" />
+                                <TableColumn prefWidth="96.66" text="qteStock" />
+                        <TableColumn prefWidth="75.0" text="qteAcheter" />
+                        <TableColumn prefWidth="75.0" text="qteLouer" />
+                            </columns>
+                        </TableView>
+                  <Button fx:id="search" layoutX="411.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-color: white; -fx-border-color: #E96151; -fx-border-radius: 20px; -fx-background-radius: 20px;" text="Search">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                    </children>
+                </Pane>
+            <Pane prefHeight="69.0" prefWidth="601.0" style="-fx-background-color: #303030;">
+               <children>
+                  <Label layoutX="226.0" layoutY="20.0" prefHeight="30.0" prefWidth="139.0" style="-fx-background-color: #2e3131;" text="Historique" textFill="WHITE">
+                     <font>
+                        <Font name="Century Gothic" size="19.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="30.0" fitWidth="35.0" layoutX="184.0" layoutY="20.0">
+                     <image>
+                        <Image url="@../img_jfx/Annotation%202021-03-31%20163339.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Pane layoutX="25.0" layoutY="509.0" prefHeight="77.0" prefWidth="551.0" style="-fx-background-color: #FAEBD7; -fx-background-radius: 15px;">
+               <children>
+                  <Button fx:id="retour" layoutX="465.0" layoutY="26.0" mnemonicParsing="false" style="-fx-background-color: white; -fx-border-color: #E96151; -fx-border-radius: 15px; -fx-background-radius: 15px;" text="Retour">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <ImageView fitHeight="14.0" fitWidth="18.0" layoutX="7.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img_jfx/Annotation%202021-03-31%20165837.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="25.0" layoutY="3.0" text="Retour">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            </children>
+        </Pane>
+      <AnchorPane layoutY="1.0" prefHeight="600.0" prefWidth="161.0">
+         <children>
+            <Pane prefHeight="600.0" prefWidth="150.0" style="-fx-background-color: #303030;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Pane prefHeight="69.0" prefWidth="150.0" style="-fx-background-color: #E96151;">
+                     <children>
+                        <Label layoutX="75.0" layoutY="20.0" prefHeight="29.0" prefWidth="93.0" text="Avatar" textFill="#f8f8f8">
+                           <font>
+                              <Font name="Century Gothic" size="19.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="14.0" layoutY="11.0">
+                           <image>
+                              <Image url="@../img_jfx/05552ad2-390f-4ce1-a544-d8a2ba238389.jfif" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Button fx:id="document" layoutX="54.0" layoutY="127.0" mnemonicParsing="false" onAction="#ButtonDocummentAction" style="-fx-background-color: #303030; -fx-border-radius: 20px;" text="Documents" textFill="WHITE" />
+                  <Button fx:id="historique" layoutX="54.0" layoutY="193.0" mnemonicParsing="false" onAction="#ButtonHistoriqueAction" style="-fx-background-color: #303030; -fx-border-radius: 20px;" text="Historique" textFill="WHITE" />
+                  <Button fx:id="parametre" layoutX="52.0" layoutY="468.0" mnemonicParsing="false" onAction="#ButtonParametreAction" style="-fx-background-color: #303030; -fx-border-radius: 20px;" text="Paramétres" textFill="WHITE" />
+                  <Button fx:id="deconnecter" layoutX="50.0" layoutY="534.0" mnemonicParsing="false" onAction="#ButtonDeconnecterAction" style="-fx-background-color: #303030; -fx-border-radius: 20px;" text="Déconnecter" textFill="WHITE" />
+                  <ImageView fitHeight="29.0" fitWidth="36.0" layoutX="7.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img_jfx/Annotation%202021-03-31%20162848.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="29.0" fitWidth="27.0" layoutX="11.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img_jfx/Annotation%202021-03-31%20163339.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="30.0" fitWidth="27.0" layoutX="11.0" layoutY="469.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img_jfx/Annotation%202021-03-31%20163446.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="30.0" fitWidth="27.0" layoutX="11.0" layoutY="532.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img_jfx/Annotation%202021-03-31%20163559.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+    </children>
+
+</AnchorPane>

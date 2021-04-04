@@ -1,0 +1,106 @@
+package sample;
+
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import javafx.stage.Window;
+
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+public class ParametreController {
+
+    @FXML
+    private TextField nom;
+    @FXML
+    private TextField prenom;
+    @FXML
+    private TextField email;
+    @FXML
+    private PasswordField motdepasse;
+    @FXML
+    private PasswordField nvmptdepasse;
+    @FXML
+    private PasswordField confirmation;
+    @FXML
+    private Button modifier;
+    @FXML
+    private Button document;
+    @FXML
+    private Button historique;
+    @FXML
+    private Button parametre;
+    @FXML
+    private Button deconnecter;
+    @FXML
+    private AnchorPane param;
+
+
+    public void ButtonDocummentAction(ActionEvent event) {
+        param.getScene().getWindow().hide();
+        Parent root = null;
+        try {
+            root = FXMLLoader.load(getClass().getResource("Doc.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(ParametreController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Stage stage = new Stage();
+        Scene scene = new Scene(root) ;
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void ButtonHistoriqueAction(ActionEvent event) {
+        param.getScene().getWindow().hide();
+        Parent root = null;
+        try {
+            root = FXMLLoader.load(getClass().getResource("Historique.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(ParametreController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Stage stage = new Stage();
+        Scene scene = new Scene(root) ;
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void ButtonParametreAction(ActionEvent event) {
+        param.getScene().getWindow().hide();
+        Parent root = null;
+        try {
+            root = FXMLLoader.load(getClass().getResource("Param.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(ParametreController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Stage stage = new Stage();
+        Scene scene = new Scene(root) ;
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void ButtonDeconnecterAction(ActionEvent event) {
+        param.getScene().getWindow().hide();
+        Parent root = null;
+        try {
+            root = FXMLLoader.load(getClass().getResource("Connection.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(ParametreController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Stage stage = new Stage();
+        Scene scene = new Scene(root) ;
+        stage.setScene(scene);
+        stage.show();
+    }
+}
