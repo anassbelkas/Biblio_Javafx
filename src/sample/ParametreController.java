@@ -43,6 +43,8 @@ public class ParametreController {
     @FXML
     private Button historique;
     @FXML
+    private Button admin;
+    @FXML
     private Button parametre;
     @FXML
     private Button deconnecter;
@@ -55,6 +57,20 @@ public class ParametreController {
         Parent root = null;
         try {
             root = FXMLLoader.load(getClass().getResource("Doc.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(ParametreController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Stage stage = new Stage();
+        Scene scene = new Scene(root) ;
+        stage.setScene(scene);
+        stage.setTitle("MyBiblio");
+        stage.show();
+    }
+    public void ButtonAdminAction(ActionEvent event) {
+        param.getScene().getWindow().hide();
+        Parent root = null;
+        try {
+            root = FXMLLoader.load(getClass().getResource("Admin.fxml"));
         } catch (IOException ex) {
             Logger.getLogger(ParametreController.class.getName()).log(Level.SEVERE, null, ex);
         }

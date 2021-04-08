@@ -11,18 +11,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+import javax.swing.text.TabableView;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class DocController {
+public class AdminController {
 
-    @FXML
-    private Button livre;
-    @FXML
-    private Button magazine;
-    @FXML
-    private Button dictionnaire;
     @FXML
     private Button document;
     @FXML
@@ -32,27 +27,27 @@ public class DocController {
     @FXML
     private Button deconnecter;
     @FXML
-    private Button Admin;
+    private Button admin_btn;
     @FXML
-    private Button search;
+    private TextField entrer_isbn;
     @FXML
-    private Button emprunter;
+    private TextField entrer_titre;
     @FXML
-    private TextField chercher;
+    private TextField entrer_qte;
     @FXML
-    private TableView tableau;
+    private Button btn_entrer;
     @FXML
-    private TableView tableauEmpr;
+    private TableView table;
     @FXML
-    private AnchorPane doc;
+    private AnchorPane administration_pane;
 
     public void ButtonDocummentAction(ActionEvent event) {
-        doc.getScene().getWindow().hide();
+        administration_pane.getScene().getWindow().hide();
         Parent root = null;
         try {
             root = FXMLLoader.load(getClass().getResource("Doc.fxml"));
         } catch (IOException ex) {
-            Logger.getLogger(DocController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
         }
         Stage stage = new Stage();
         Scene scene = new Scene(root) ;
@@ -60,13 +55,14 @@ public class DocController {
         stage.setTitle("MyBiblio");
         stage.show();
     }
+
     public void ButtonAdminAction(ActionEvent event) {
-        doc.getScene().getWindow().hide();
+        administration_pane.getScene().getWindow().hide();
         Parent root = null;
         try {
             root = FXMLLoader.load(getClass().getResource("Admin.fxml"));
         } catch (IOException ex) {
-            Logger.getLogger(DocController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
         }
         Stage stage = new Stage();
         Scene scene = new Scene(root) ;
@@ -76,12 +72,12 @@ public class DocController {
     }
 
     public void ButtonHistoriqueAction(ActionEvent event) {
-        doc.getScene().getWindow().hide();
+        administration_pane.getScene().getWindow().hide();
         Parent root = null;
         try {
             root = FXMLLoader.load(getClass().getResource("Historique.fxml"));
         } catch (IOException ex) {
-            Logger.getLogger(DocController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
         }
         Stage stage = new Stage();
         Scene scene = new Scene(root) ;
@@ -91,12 +87,12 @@ public class DocController {
     }
 
     public void ButtonParametreAction(ActionEvent event) {
-        doc.getScene().getWindow().hide();
+        administration_pane.getScene().getWindow().hide();
         Parent root = null;
         try {
             root = FXMLLoader.load(getClass().getResource("Param.fxml"));
         } catch (IOException ex) {
-            Logger.getLogger(DocController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
         }
         Stage stage = new Stage();
         Scene scene = new Scene(root) ;
@@ -106,12 +102,12 @@ public class DocController {
     }
 
     public void ButtonDeconnecterAction(ActionEvent event) {
-        doc.getScene().getWindow().hide();
+        administration_pane.getScene().getWindow().hide();
         Parent root = null;
         try {
             root = FXMLLoader.load(getClass().getResource("Connection.fxml"));
         } catch (IOException ex) {
-            Logger.getLogger(DocController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
         }
         Stage stage = new Stage();
         Scene scene = new Scene(root) ;

@@ -5,8 +5,8 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="doc" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="750.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.DocController">
-   <children> 
+<AnchorPane fx:id="administration_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="750.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AdminController">
+   <children>
       <ImageView fitHeight="600.0" fitWidth="750.0" style="-fx-opacity: 1000;">
          <image>
             <Image url="@../img_jfx/88c4440c63d56aa8a3c89fef3e0eb671.jpg" />
@@ -16,33 +16,32 @@
          <children>
             <Pane layoutX="-22.0" prefHeight="69.0" prefWidth="601.0" style="-fx-background-color: #303030;">
                <children>
-                  <Label layoutX="226.0" layoutY="20.0" prefHeight="30.0" prefWidth="139.0" style="-fx-background-color: #2e3131;" text="Documents " textFill="WHITE">
+                  <Label layoutX="226.0" layoutY="20.0" prefHeight="30.0" prefWidth="139.0" style="-fx-background-color: #2e3131;" text="Administation" textFill="WHITE">
                      <font>
                         <Font name="Century Gothic" size="19.0" />
                      </font>
                   </Label>
-                  <ImageView fitHeight="32.0" fitWidth="53.0" layoutX="166.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="46.0" fitWidth="41.0" layoutX="178.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../img_jfx/Annotation%202021-03-31%20162403.png" />
+                        <Image url="@../img_jfx/Annotation%202021-03-31%20163446.png" />
                      </image>
                   </ImageView>
                </children>
             </Pane>
-            <Pane layoutX="12.0" layoutY="191.0" prefHeight="300.0" prefWidth="535.0" style="-fx-background-color: #FAEBD7; -fx-background-radius: 15px;">
+            <Pane layoutX="12.0" layoutY="243.0" prefHeight="326.0" prefWidth="535.0" style="-fx-background-color: #FAEBD7; -fx-background-radius: 15px;">
                <children>
                   <Label layoutX="27.0" layoutY="6.0" text="List des documents disponible">
                      <font>
                         <Font name="Century Gothic Bold" size="13.0" />
                      </font>
                   </Label>
-                  <TableView fx:id="tableau" layoutY="32.0" prefHeight="268.0" prefWidth="535.0" style="-fx-background-color: #FAEBD7; -fx-background-radius: 15px;">
-                    <columns>
-                      <TableColumn prefWidth="75.0" text="ISBN" />
+                  <TableView fx:id="table" layoutY="32.0" prefHeight="268.0" prefWidth="535.0" style="-fx-background-color: #FAEBD7; -fx-background-radius: 15px;">
+                     <columns>
+                        <TableColumn prefWidth="75.0" text="ISBN" />
                         <TableColumn prefWidth="75.0" text="Titre" />
                         <TableColumn prefWidth="75.0" text="qteStock" />
-                      <TableColumn prefWidth="75.0" text="qteLouer" />
-                        <TableColumn prefWidth="75.0" text="Emprunter" />
-                    </columns>
+                        <TableColumn prefWidth="75.0" text="qteLouer" />
+                     </columns>
                      <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                      </columnResizePolicy>
@@ -54,63 +53,32 @@
                   </ImageView>
                </children>
             </Pane>
-            <Pane layoutX="-21.0" layoutY="69.0" prefHeight="46.0" prefWidth="600.0">
+            <Pane layoutX="-21.0" layoutY="69.0" prefHeight="46.0" prefWidth="600.0" />
+            <Pane layoutX="11.0" layoutY="87.0" prefHeight="139.0" prefWidth="535.0" style="-fx-background-color: #FAEBD7; -fx-background-radius: 15px;">
                <children>
-                  <Button fx:id="livre" mnemonicParsing="false" prefHeight="46.0" prefWidth="201.0" style="-fx-background-color: #E96151;" text="Livre">
-                     <font>
-                        <Font name="Century Gothic Bold" size="13.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="magazine" layoutX="200.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="201.0" style="-fx-background-color: #E96151;" text="Magazine">
-                     <font>
-                        <Font name="Century Gothic Bold" size="13.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="dictionnaire" layoutX="400.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="201.0" style="-fx-background-color: #E96151;" text="Dictionnaire">
-                     <font>
-                        <Font name="Century Gothic Bold" size="13.0" />
-                     </font>
-                  </Button>
-               </children>
-            </Pane>
-            <Pane layoutX="12.0" layoutY="123.0" prefHeight="57.0" prefWidth="535.0" style="-fx-background-color: #FAEBD7; -fx-background-radius: 15px;">
-               <children>
-                  <Label layoutX="36.0" layoutY="17.0" prefHeight="18.0" prefWidth="139.0" text="Chercher un document :">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font></Label>
-                  <TextField fx:id="chercher" layoutX="192.0" layoutY="13.0" promptText="Chercher" style="-fx-border-color: #E96151; -fx-background-color: white; -fx-border-radius: 20px; -fx-background-radius: 20px;" />
-                  <Button fx:id="search" layoutX="388.0" layoutY="13.0" mnemonicParsing="false" style="-fx-background-color: white; -fx-border-color: #E96151; -fx-border-radius: 20px; -fx-background-radius: 20px;" text="Search">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Button>
-               </children>
-            </Pane>
-            <Pane layoutX="12.0" layoutY="498.0" prefHeight="95.0" prefWidth="535.0" style="-fx-background-color: #FAEBD7; -fx-background-radius: 15px;">
-               <children>
-                  <Button fx:id="emprunter" layoutX="440.0" layoutY="35.0" mnemonicParsing="false" style="-fx-background-color: white; -fx-border-color: #E96151; -fx-border-radius: 15px; -fx-background-radius: 15px;" text="Emprunter">
-                     <font>
-                        <Font name="Arial Rounded MT Bold" size="12.0" />
-                     </font></Button>
-                  <ImageView fitHeight="14.0" fitWidth="18.0" layoutX="7.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../img_jfx/Annotation%202021-03-31%20165837.png" />
-                     </image>
-                  </ImageView>
-                  <Label layoutX="25.0" layoutY="3.0" text="Emprunter">
+                  <Label layoutX="36.0" layoutY="17.0" prefHeight="18.0" prefWidth="139.0" text="Inserer la reference :">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Label>
-                  <TableView fx:id="tableauEmpr" layoutX="6.0" layoutY="26.0" prefHeight="69.0" prefWidth="400.0" style="-fx-background-color: #FAEBD7; -fx-background-radius: 15px;">
-                     <columns>
-                        <TableColumn prefWidth="149.5999755859375" text="Titre" />
-                     </columns>
-                     <columnResizePolicy>
-                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                     </columnResizePolicy>
-                  </TableView>
+                  <TextField fx:id="entrer_isbn" layoutX="192.0" layoutY="13.0" promptText="ISBN" style="-fx-border-color: #E96151; -fx-background-color: white; -fx-border-radius: 20px; -fx-background-radius: 20px;" />
+                  <Button fx:id="btn_entrer" layoutX="418.0" layoutY="57.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="83.0" style="-fx-background-color: white; -fx-border-color: #E96151; -fx-border-radius: 20px; -fx-background-radius: 20px;" text="Entrer">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <TextField fx:id="entrer_titre" layoutX="192.0" layoutY="56.0" promptText="titre" style="-fx-border-color: #E96151; -fx-background-color: white; -fx-border-radius: 20px; -fx-background-radius: 20px;" />
+                  <TextField fx:id="entrer_qte" layoutX="192.0" layoutY="98.0" promptText="quantité" style="-fx-border-color: #E96151; -fx-background-color: white; -fx-border-radius: 20px; -fx-background-radius: 20px;" />
+                  <Label layoutX="36.0" layoutY="61.0" prefHeight="18.0" prefWidth="139.0" text="Inserer le titre :">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="36.0" layoutY="103.0" prefHeight="18.0" prefWidth="139.0" text="Donner la quantité :">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
                </children>
             </Pane>
          </children>
@@ -131,7 +99,6 @@
                               <Image url="@../img_jfx/05552ad2-390f-4ce1-a544-d8a2ba238389.jfif" />
                            </image>
                         </ImageView>
-                       <!--  <Avatar layoutX="14.0" layoutY="19.0" />   -->
                      </children>
                   </Pane>
                   <Button fx:id="document" layoutX="54.0" layoutY="127.0" mnemonicParsing="false" onAction="#ButtonDocummentAction" style="-fx-background-color: #303030; -fx-border-radius: 20px;" text="Documents" textFill="WHITE" />
@@ -158,7 +125,7 @@
                         <Image url="@../img_jfx/Annotation%202021-03-31%20163559.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="Admin" layoutX="45.0" layoutY="300.0" mnemonicParsing="false" onAction="#ButtonAdminAction" style="-fx-background-color: #303030; -fx-border-radius: 20px;" text="Administration" textFill="WHITE" />
+                  <Button fx:id="admin_btn" layoutX="45.0" layoutY="300.0" mnemonicParsing="false" onAction="#ButtonAdminAction" style="-fx-background-color: #303030; -fx-border-radius: 20px;" text="Administration" textFill="WHITE" />
                   <ImageView fitHeight="30.0" fitWidth="27.0" layoutX="11.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../img_jfx/Annotation%202021-03-31%20163446.png" />

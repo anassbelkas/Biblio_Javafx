@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -31,11 +32,15 @@ public class HistoriqueController {
     @FXML
     private Button deconnecter;
     @FXML
+    private Button admin;
+    @FXML
     private Button search;
     @FXML
-    private Button retour;
+    private Button corbeille;
     @FXML
     private TextField chercher;
+    @FXML
+    private TableView table;
     @FXML
     private AnchorPane hist;
 
@@ -51,7 +56,6 @@ public class HistoriqueController {
         Scene scene = new Scene(root) ;
         stage.setScene(scene);
         stage.setTitle("MyBiblio");
-
 
         stage.show();
     }
@@ -76,6 +80,21 @@ public class HistoriqueController {
         Parent root = null;
         try {
             root = FXMLLoader.load(getClass().getResource("Param.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(HistoriqueController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Stage stage = new Stage();
+        Scene scene = new Scene(root) ;
+        stage.setScene(scene);
+        stage.setTitle("MyBiblio");
+        stage.show();
+    }
+
+    public void ButtonAdminAction(ActionEvent event) {
+        hist.getScene().getWindow().hide();
+        Parent root = null;
+        try {
+            root = FXMLLoader.load(getClass().getResource("Admin.fxml"));
         } catch (IOException ex) {
             Logger.getLogger(HistoriqueController.class.getName()).log(Level.SEVERE, null, ex);
         }
