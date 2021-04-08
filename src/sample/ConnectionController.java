@@ -25,6 +25,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -79,7 +80,6 @@ public class ConnectionController {
                 if(queryOutput.getString("nom").equals(nom.getText())&&queryOutput.getString("password").equals(mdp.getText())) {
                     i++;
                 }
-                System.out.println(i);
             }
         }
         catch (Exception e) {
@@ -97,6 +97,7 @@ public class ConnectionController {
             Stage stage = new Stage();
             Scene scene = new Scene(root);
             stage.setScene(scene);
+            stage.setTitle("MyBiblio");
             stage.show();
         }
         else{
@@ -120,18 +121,59 @@ public class ConnectionController {
         translateTransition.setByX(-350);
         translateTransition.setAutoReverse(false);
         translateTransition.play();
+        nom_utilisateur.setText("");
+        prenom.setText("");
+        email.setText("");
+        mdp_inscription.setText("");
 
     }
- public void inscrire() throws SQLException {
+ public int inscrire() throws SQLException {
+        if(nom_utilisateur.getText()==""){
+            error_nom.setText("Entrer votre nom");
+            return -1;
+        }
+        else{
+            error_nom.setText("");
+        }
+        if(prenom.getText()==""){
+            error_prenom.setText("inserer votre prenom");
+            return -2;
+        }
+        else{
+            error_prenom.setText("");
+        }
+        if(email.getText()==""){
+            error_email.setText("inserer votre email");
+            return -3;
+        }
+        else{
+            error_email.setText("");
+        }
+        if(mdp_inscription.getText()==""){
+            error_mdp.setText("inserer votre mot de passe");
+            return -4;
+        }
+        else{
+            error_mdp.setText("");
+        }
+
      User user1 = new User(nom_utilisateur.getText(),prenom.getText(),email.getText(), mdp_inscription.getText());
          ConnectionClass connectionClass = new ConnectionClass();
          Connection connection=connectionClass.getConnection();
-         user1.function();
-         String sql="INSERT INTO user values ('"+User.getId()+"','"+user1.getNom()+"','"+user1.getPrenom()+"','"+user1.getEmail()+"','"+user1.getPassword()+"')";
+     Random rd = new Random();
+     double random = rd.nextInt(10000);
+     System.out.println(rd);
+         String sql="INSERT INTO user values ('"+random+"','"+user1.getNom()+"','"+user1.getPrenom()+"','"+user1.getEmail()+"','"+user1.getPassword()+"')";
      System.out.println(sql);
          Statement statement=connection.createStatement();
 
          statement.executeUpdate(sql);
+         nom_utilisateur.setText("");
+         prenom.setText("");
+         email.setText("");
+         mdp_inscription.setText("");
+
+
 
      TranslateTransition translateTransition = new TranslateTransition();
      translateTransition.setDuration(Duration.millis(1200));
@@ -139,6 +181,8 @@ public class ConnectionController {
      translateTransition.setByX(-350);
      translateTransition.setAutoReverse(false);
      translateTransition.play();
+     return 1;
  }
+
 
 }

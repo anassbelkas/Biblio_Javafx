@@ -4,28 +4,30 @@ package sample;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import javafx.stage.Window;
+import sample.connection.ConnectionClass;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class ParametreController {
+    @FXML
+    private Label error;
 
-    @FXML
-    private TextField nom;
-    @FXML
-    private TextField prenom;
+
     @FXML
     private TextField email;
     @FXML
@@ -59,6 +61,7 @@ public class ParametreController {
         Stage stage = new Stage();
         Scene scene = new Scene(root) ;
         stage.setScene(scene);
+        stage.setTitle("MyBiblio");
         stage.show();
     }
 
@@ -73,6 +76,7 @@ public class ParametreController {
         Stage stage = new Stage();
         Scene scene = new Scene(root) ;
         stage.setScene(scene);
+        stage.setTitle("MyBiblio");
         stage.show();
     }
 
@@ -87,6 +91,7 @@ public class ParametreController {
         Stage stage = new Stage();
         Scene scene = new Scene(root) ;
         stage.setScene(scene);
+        stage.setTitle("MyBiblio");
         stage.show();
     }
 
@@ -101,6 +106,64 @@ public class ParametreController {
         Stage stage = new Stage();
         Scene scene = new Scene(root) ;
         stage.setScene(scene);
+        stage.setTitle("MyBiblio");
         stage.show();
+    }
+    public int modifier(ActionEvent event){
+        if(email.getText()==""){
+            error.setText("les données sont incorrectes");
+            return -1;
+        }
+        if(motdepasse.getText()==""){
+            error.setText("les données sont incorrectes");
+            return -2;
+        }
+
+        if(nvmptdepasse.getText()==""){
+            error.setText("les données sont incorrectes");
+            return -3;
+        }
+        if(confirmation.getText()==""){
+            error.setText("les données sont incorrectes");
+            return -4;
+        }
+
+        if(!nvmptdepasse.getText().equals(confirmation.getText())){
+            error.setText("les données sont incorrectes");
+            return -4;
+        }
+        else{
+            error.setText("");
+        }
+        ConnectionClass connectionClass = new ConnectionClass();
+        Connection connection = connectionClass.getConnection();
+        String sql2 = "select * from user";
+        int i=0;
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet queryOutput = statement.executeQuery(sql2);
+            while (queryOutput.next()) {
+                if(queryOutput.getString("email").equals(email.getText())&&queryOutput.getString("password").equals(motdepasse.getText()))
+                    i++;
+            }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        if(i!=0){
+            try {
+                ConnectionClass connectionClass1 = new ConnectionClass();
+                Connection connection1 = connectionClass1.getConnection();
+                String sql = "update user set password='"+motdepasse.getText()+"' where email='"+email.getText()+"' and password='"+motdepasse.getText();
+                System.out.println(sql);
+                Statement statement1 = connection1.createStatement();
+
+                statement1.executeUpdate(sql);
+            }
+            catch (SQLException e){
+                System.out.println(e.getErrorCode());
+            }
+        }
+        return 1;
     }
 }

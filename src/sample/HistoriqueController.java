@@ -50,6 +50,9 @@ public class HistoriqueController {
         Stage stage = new Stage();
         Scene scene = new Scene(root) ;
         stage.setScene(scene);
+        stage.setTitle("MyBiblio");
+
+
         stage.show();
     }
 
@@ -64,6 +67,7 @@ public class HistoriqueController {
         Stage stage = new Stage();
         Scene scene = new Scene(root) ;
         stage.setScene(scene);
+        stage.setTitle("MyBiblio");
         stage.show();
     }
 
@@ -78,6 +82,7 @@ public class HistoriqueController {
         Stage stage = new Stage();
         Scene scene = new Scene(root) ;
         stage.setScene(scene);
+        stage.setTitle("MyBiblio");
         stage.show();
     }
 
@@ -92,6 +97,7 @@ public class HistoriqueController {
         Stage stage = new Stage();
         Scene scene = new Scene(root) ;
         stage.setScene(scene);
+        stage.setTitle("MyBiblio");
         stage.show();
     }
 }
