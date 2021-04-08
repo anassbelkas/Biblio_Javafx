@@ -1,7 +1,6 @@
 package sample.tables;
 
 public class User {
-    private static int id;
     private String nom;
     private String prenom;
     private String email;
@@ -50,14 +49,7 @@ public class User {
         this.password = password;
     }
 
-    public static int getId() {
-        return id;
-    }
 
-    public static void setId(int id) {
-        User.id = id;
-    }
-    public void function (){
-        id++;
-    }
+
+
 }

@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="param" prefHeight="600.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ParametreController">
+<AnchorPane fx:id="param" prefHeight="600.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ParametreController">
    <children>
       <ImageView fitHeight="600.0" fitWidth="750.0">
          <image>
@@ -129,7 +129,7 @@
             <PasswordField fx:id="motdepasse" layoutX="248.0" layoutY="48.0" prefHeight="25.0" prefWidth="180.0" promptText="Mot de passe" style="-fx-background-radius: 15PX;" />
             <PasswordField fx:id="nvmptdepasse" layoutX="248.0" layoutY="96.0" prefHeight="25.0" prefWidth="180.0" promptText=" Nouveau Mot de passe" style="-fx-background-radius: 15PX;" />
             <PasswordField fx:id="confirmation" layoutX="248.0" layoutY="143.0" prefHeight="25.0" prefWidth="180.0" promptText="Confirm Mot de passe" style="-fx-background-radius: 15PX;" />
-            <Button fx:id="modifier" layoutX="158.0" layoutY="203.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="180.0" style="-fx-background-color: white; -fx-border-color: #E96151; -fx-border-radius: 15px; -fx-background-radius: 15px;" text="Modifier">
+            <Button fx:id="modifier" layoutX="158.0" layoutY="203.0" mnemonicParsing="false" onAction="#modifier" onKeyPressed="#modifier" prefHeight="25.0" prefWidth="180.0" style="-fx-background-color: white; -fx-border-color: #E96151; -fx-border-radius: 15px; -fx-background-radius: 15px;" text="Modifier">
                <font>
                   <Font name="Arial Rounded MT Bold" size="12.0" />
                </font>
