@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="doc" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="750.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.DocController">
+<AnchorPane fx:id="doc" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="750.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.DocController">
    <children> 
       <ImageView fitHeight="600.0" fitWidth="750.0" style="-fx-opacity: 1000;">
          <image>
@@ -43,10 +43,9 @@
                   </Label>
                   <TableView fx:id="tableau" layoutY="32.0" prefHeight="268.0" prefWidth="535.0" style="-fx-background-color: #FAEBD7; -fx-background-radius: 15px;">
                     <columns>
-                      <TableColumn fx:id="isbn_column" prefWidth="75.0" text="ISBN" />
+                      <TableColumn fx:id="isbn_column" prefWidth="75.0" text="Type" />
                         <TableColumn fx:id="titre_column" prefWidth="75.0" text="Titre" />
                         <TableColumn fx:id="qteStock_column" prefWidth="75.0" text="qteStock" />
-                      <TableColumn fx:id="qteLouee_column" prefWidth="75.0" text="qteLouer" />
                         <TableColumn fx:id="emprunter_column" prefWidth="75.0" text="Emprunter" />
                     </columns>
                      <columnResizePolicy>
@@ -127,12 +126,7 @@
                <children>
                   <Pane prefHeight="69.0" prefWidth="150.0" style="-fx-background-color: #E96151;">
                      <children>
-                        <Label fx:id="label" layoutX="75.0" layoutY="20.0" prefHeight="29.0" prefWidth="93.0" text="Avatar" textFill="#f8f8f8">
-                           <font>
-                              <Font name="Century Gothic" size="19.0" />
-                           </font>
-                        </Label>
-                        <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="14.0" layoutY="11.0">
+                        <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="51.0" layoutY="12.0">
                            <image>
                               <Image url="@../img_jfx/05552ad2-390f-4ce1-a544-d8a2ba238389.jfif" />
                            </image>
