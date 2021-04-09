@@ -127,29 +127,29 @@ public class ParametreController {
     }
     public int modifier(ActionEvent event){
         if(email.getText()==""){
-            error.setText("les données sont incorrectes");
+            //error.setText("les données sont incorrectes");
             return -1;
         }
         if(motdepasse.getText()==""){
-            error.setText("les données sont incorrectes");
+            //error.setText("les données sont incorrectes");
             return -2;
         }
 
         if(nvmptdepasse.getText()==""){
-            error.setText("les données sont incorrectes");
+            //error.setText("les données sont incorrectes");
             return -3;
         }
         if(confirmation.getText()==""){
-            error.setText("les données sont incorrectes");
+            //error.setText("les données sont incorrectes");
             return -4;
         }
 
         if(!nvmptdepasse.getText().equals(confirmation.getText())){
-            error.setText("les données sont incorrectes");
+            //error.setText("les données sont incorrectes");
             return -4;
         }
         else{
-            error.setText("");
+            //error.setText("");
         }
         ConnectionClass connectionClass = new ConnectionClass();
         Connection connection = connectionClass.getConnection();
@@ -159,22 +159,25 @@ public class ParametreController {
             Statement statement = connection.createStatement();
             ResultSet queryOutput = statement.executeQuery(sql2);
             while (queryOutput.next()) {
-                if(queryOutput.getString("email").equals(email.getText())&&queryOutput.getString("password").equals(motdepasse.getText()))
+
+                if(queryOutput.getString("email").equals(email.getText())&&queryOutput.getString("password").equals(motdepasse.getText())){
                     i++;
+                }
+
             }
         }
         catch (Exception e) {
             e.printStackTrace();
         }
+        System.out.println(i);
         if(i!=0){
             try {
                 ConnectionClass connectionClass1 = new ConnectionClass();
                 Connection connection1 = connectionClass1.getConnection();
-                String sql = "update user set password='"+motdepasse.getText()+"' where email='"+email.getText()+"' and password='"+motdepasse.getText();
+                String sql = "update user set password='"+nvmptdepasse.getText()+"' where email='"+email.getText()+"'";
                 System.out.println(sql);
-                Statement statement1 = connection1.createStatement();
-
-                statement1.executeUpdate(sql);
+                Statement statement = connection1.createStatement();
+                statement.executeUpdate(sql);
             }
             catch (SQLException e){
                 System.out.println(e.getErrorCode());
