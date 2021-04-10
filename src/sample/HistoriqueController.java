@@ -165,14 +165,41 @@ public class HistoriqueController {
     public void corbeille(ActionEvent e){
         ConnectionClass connectionClass = new ConnectionClass();
         Connection connection=connectionClass.getConnection();
-
-        String sql="";
+        String sql="delete from empreint";
         try{
             Statement statement=connection.createStatement();
             statement.executeUpdate(sql);
         }
         catch (SQLException se){
             System.out.println(se.getMessage());
+        }
+        isbn_emprunter_column.setCellValueFactory(new PropertyValueFactory<>("isbn"));
+        titre_emprunter_column.setCellValueFactory(new PropertyValueFactory<>("titre"));
+        ObservableList<Document> list = FXCollections.observableArrayList();
+        ConnectionClass connectionClass1 = new ConnectionClass();
+        Connection connection1 = connectionClass1.getConnection();
+        String sql2 = "select * from empreint";
+        System.out.println(sql2);
+        try {
+            Statement statement = connection1.createStatement();
+            ResultSet queryOutput = statement.executeQuery(sql2);
+            while (queryOutput.next()) {
+                Document document = new Document(queryOutput.getString("isbn"),queryOutput.getString("titre"));
+                list.add(document);
+            }
+
+            Collections.sort(list,(o1, o2)->{
+                if(o1.getTitre().compareTo(o2.getTitre())>0)
+                    return 1;
+                if(o1.getTitre().compareTo(o2.getTitre())<0)
+                    return -1;
+                else
+                    return 0;
+            });
+            table.setItems(list);
+        }
+        catch (Exception ee) {
+            ee.printStackTrace();
         }
     }
 }

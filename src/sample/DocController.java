@@ -33,8 +33,7 @@ public class DocController {
     private TableColumn<Document,String> titre_column;
     @FXML
     private TableColumn<Document,String> qteStock_column;
-    @FXML
-    private TableColumn<Document,String> qteLouee_column;
+
     @FXML
     private TableColumn<Document,Button> emprunter_column;
 
@@ -156,7 +155,6 @@ public class DocController {
         isbn_column.setCellValueFactory(new PropertyValueFactory<>("isbn"));
         titre_column.setCellValueFactory(new PropertyValueFactory<>("titre"));
         qteStock_column.setCellValueFactory(new PropertyValueFactory<>("qteStock"));
-        qteLouee_column.setCellValueFactory(new PropertyValueFactory<>("qteLouee"));
         emprunter_column.setCellValueFactory(new PropertyValueFactory<>("button"));
         emprunter_titre_column.setCellValueFactory(new PropertyValueFactory<>("titre"));
         ObservableList<Document> list = FXCollections.observableArrayList();
@@ -168,7 +166,7 @@ public class DocController {
             Statement statement = connection.createStatement();
             ResultSet queryOutput = statement.executeQuery(sql2);
             while (queryOutput.next()) {
-                Document document = new Document(queryOutput.getString("isbn"),queryOutput.getString("titre"),queryOutput.getString("qteStock"),queryOutput.getString("qteLouee"));
+                Document document = new Document(queryOutput.getString("isbn"),queryOutput.getString("titre"),queryOutput.getString("qteStock"));
                 list.add(document);
                 document.getButton().setOnAction((event)->{
                     ObservableList<Document> list1 = FXCollections.observableArrayList();
@@ -197,7 +195,6 @@ public class DocController {
         isbn_column.setCellValueFactory(new PropertyValueFactory<>("isbn"));
         titre_column.setCellValueFactory(new PropertyValueFactory<>("titre"));
         qteStock_column.setCellValueFactory(new PropertyValueFactory<>("qteStock"));
-        qteLouee_column.setCellValueFactory(new PropertyValueFactory<>("qteLouee"));
         emprunter_column.setCellValueFactory(new PropertyValueFactory<>("button"));
         emprunter_titre_column.setCellValueFactory(new PropertyValueFactory<>("titre"));
         ObservableList<Document> list = FXCollections.observableArrayList();
@@ -209,7 +206,7 @@ public class DocController {
             Statement statement = connection.createStatement();
             ResultSet queryOutput = statement.executeQuery(sql2);
             while (queryOutput.next()) {
-                Document document = new Document(queryOutput.getString("isbn"),queryOutput.getString("titre"),queryOutput.getString("qteStock"),queryOutput.getString("qteLouee"));
+                Document document = new Document(queryOutput.getString("isbn"),queryOutput.getString("titre"),queryOutput.getString("qteStock"));
                 list.add(document);
                 document.getButton().setOnAction((event)->{
                     ObservableList<Document> list1 = FXCollections.observableArrayList();
@@ -238,7 +235,6 @@ public class DocController {
         isbn_column.setCellValueFactory(new PropertyValueFactory<>("isbn"));
         titre_column.setCellValueFactory(new PropertyValueFactory<>("titre"));
         qteStock_column.setCellValueFactory(new PropertyValueFactory<>("qteStock"));
-        qteLouee_column.setCellValueFactory(new PropertyValueFactory<>("qteLouee"));
         emprunter_column.setCellValueFactory(new PropertyValueFactory<>("button"));
         emprunter_titre_column.setCellValueFactory(new PropertyValueFactory<>("titre"));
         ObservableList<Document> list = FXCollections.observableArrayList();
@@ -250,7 +246,7 @@ public class DocController {
             Statement statement = connection.createStatement();
             ResultSet queryOutput = statement.executeQuery(sql2);
             while (queryOutput.next()) {
-                Document document = new Document(queryOutput.getString("isbn"),queryOutput.getString("titre"),queryOutput.getString("qteStock"),queryOutput.getString("qteLouee"));
+                Document document = new Document(queryOutput.getString("isbn"),queryOutput.getString("titre"),queryOutput.getString("qteStock"));
                 list.add(document);
                 document.getButton().setOnAction((event)->{
                     ObservableList<Document> list1 = FXCollections.observableArrayList();
@@ -279,7 +275,6 @@ public class DocController {
         isbn_column.setCellValueFactory(new PropertyValueFactory<>("isbn"));
         titre_column.setCellValueFactory(new PropertyValueFactory<>("titre"));
         qteStock_column.setCellValueFactory(new PropertyValueFactory<>("qteStock"));
-        qteLouee_column.setCellValueFactory(new PropertyValueFactory<>("qteLouee"));
         emprunter_column.setCellValueFactory(new PropertyValueFactory<>("button"));
         emprunter_titre_column.setCellValueFactory(new PropertyValueFactory<>("titre"));
         ObservableList<Document> list = FXCollections.observableArrayList();
@@ -291,7 +286,7 @@ public class DocController {
             Statement statement = connection.createStatement();
             ResultSet queryOutput = statement.executeQuery(sql2);
             while (queryOutput.next()) {
-                Document document = new Document(queryOutput.getString("isbn"),queryOutput.getString("titre"),queryOutput.getString("qteStock"),queryOutput.getString("qteLouee"));
+                Document document = new Document(queryOutput.getString("isbn"),queryOutput.getString("titre"),queryOutput.getString("qteStock"));
                 list.add(document);
                 document.getButton().setOnAction((event)->{
                     ObservableList<Document> list1 = FXCollections.observableArrayList();

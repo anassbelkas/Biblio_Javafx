@@ -11,15 +11,16 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import sample.connection.ConnectionClass;
+
 
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -127,29 +128,29 @@ public class ParametreController {
     }
     public int modifier(ActionEvent event){
         if(email.getText()==""){
-            //error.setText("les données sont incorrectes");
+            error.setText("données incorrectes");
             return -1;
         }
         if(motdepasse.getText()==""){
-            //error.setText("les données sont incorrectes");
+            error.setText("données incorrectes");
             return -2;
         }
 
         if(nvmptdepasse.getText()==""){
-            //error.setText("les données sont incorrectes");
+            error.setText("données incorrectes");
             return -3;
         }
         if(confirmation.getText()==""){
-            //error.setText("les données sont incorrectes");
+            error.setText("données incorrectes");
             return -4;
         }
 
         if(!nvmptdepasse.getText().equals(confirmation.getText())){
-            //error.setText("les données sont incorrectes");
+            error.setText("données incorrectes");
             return -4;
         }
         else{
-            //error.setText("");
+            error.setText("");
         }
         ConnectionClass connectionClass = new ConnectionClass();
         Connection connection = connectionClass.getConnection();
@@ -159,25 +160,27 @@ public class ParametreController {
             Statement statement = connection.createStatement();
             ResultSet queryOutput = statement.executeQuery(sql2);
             while (queryOutput.next()) {
-
                 if(queryOutput.getString("email").equals(email.getText())&&queryOutput.getString("password").equals(motdepasse.getText())){
                     i++;
                 }
-
             }
         }
         catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println(i);
         if(i!=0){
+            error.setText("Succes !");
+            error.setTextFill(Color.GREEN);
             try {
                 ConnectionClass connectionClass1 = new ConnectionClass();
                 Connection connection1 = connectionClass1.getConnection();
                 String sql = "update user set password='"+nvmptdepasse.getText()+"' where email='"+email.getText()+"'";
-                System.out.println(sql);
                 Statement statement = connection1.createStatement();
                 statement.executeUpdate(sql);
+                email.setText("");
+                nvmptdepasse.setText("");
+                motdepasse.setText("");
+                confirmation.setText("");
             }
             catch (SQLException e){
                 System.out.println(e.getErrorCode());

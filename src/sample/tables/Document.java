@@ -5,17 +5,16 @@ import javafx.scene.control.Button;
 import javax.swing.*;
 
 public class Document {
-    String isbn;
+     String isbn;
     String titre;
     String qteStock;
-    String qteLouee;
     Button button;
 
-    public Document(String isbn, String titre, String qteStock, String qteLouee) {
+    public Document(String isbn, String titre, String qteStock) {
         this.isbn = isbn;
         this.titre = titre;
         this.qteStock = qteStock;
-        this.qteLouee = qteLouee;
+
         this.button= new Button("emprunter");
     }
 
@@ -63,11 +62,5 @@ public class Document {
         this.qteStock = qteStock;
     }
 
-    public String getQteLouee() {
-        return qteLouee;
-    }
 
-    public void setQteLouee(String qteLouee) {
-        this.qteLouee = qteLouee;
-    }
 }

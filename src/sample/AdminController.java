@@ -35,8 +35,6 @@ public class AdminController {
     @FXML
     private TableColumn<Document,String> qteStock_column;
     @FXML
-    private TableColumn<Document,String> qteLouee_column;
-    @FXML
     private Button document;
     @FXML
     private Button historique;
@@ -136,7 +134,6 @@ public class AdminController {
         isbn_column.setCellValueFactory(new PropertyValueFactory<>("isbn"));
         titre_column.setCellValueFactory(new PropertyValueFactory<>("titre"));
         qteStock_column.setCellValueFactory(new PropertyValueFactory<>("qteStock"));
-        qteLouee_column.setCellValueFactory(new PropertyValueFactory<>("qteLouee"));
         ObservableList<Document> list = FXCollections.observableArrayList();
         ConnectionClass connectionClass = new ConnectionClass();
         Connection connection = connectionClass.getConnection();
@@ -146,7 +143,7 @@ public class AdminController {
             Statement statement = connection.createStatement();
             ResultSet queryOutput = statement.executeQuery(sql2);
             while (queryOutput.next()) {
-            list.add(new Document(queryOutput.getString("isbn"),queryOutput.getString("titre"),queryOutput.getString("qteStock"),queryOutput.getString("qteLouee")));
+            list.add(new Document(queryOutput.getString("isbn"),queryOutput.getString("titre"),queryOutput.getString("qteStock")));
                 }
             Collections.sort(list,(o1,o2)->{
                 if(o1.getTitre().compareTo(o2.getTitre())>0)
